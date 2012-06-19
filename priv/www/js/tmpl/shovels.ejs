@@ -24,7 +24,7 @@
 <% if (nodes_interesting) { %>
     <td><%= fmt_string(shovel.node) %></td>
 <% } %>
-<% if (shovel.state == 'terminated') { %>
+<% if (shovel.state === 'terminated') { %>
     <td class="status" colspan="3">
        <div class="red"><%= shovel.state %></div>
     </td>
