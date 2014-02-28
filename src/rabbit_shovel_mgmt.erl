@@ -21,6 +21,11 @@
 -export([dispatcher/0, web_ui/0]).
 -export([init/1, to_json/2, content_types_provided/2, is_authorized/2]).
 
+-rabbit_boot_step({?MODULE,
+                   [{description, "shovel mgmt extension setup/teardown"},
+                    {mfa, {rabbit_mgmt_app, reset, []}},
+                    {cleanup, {rabbit_mgmt_app, reset, []}}]}).
+
 -import(rabbit_misc, [pget/2]).
 
 -include_lib("rabbitmq_management/include/rabbit_mgmt.hrl").
